@@ -22,15 +22,7 @@ public abstract class Position {
      * Difficulty: *
      */
     public Position move(final Direction direction) {
-        // IMPLEMENT FUNC {{{
-        switch(direction) {
-            case North: return ImmutablePosition.copyOf(this).withY(y() - 1);
-            case South: return ImmutablePosition.copyOf(this).withY(y() + 1);
-            case West: return ImmutablePosition.copyOf(this).withX(x() - 1);
-            case East: return ImmutablePosition.copyOf(this).withX(x() + 1);
-            default: throw new IllegalArgumentException(String.format("Unknown Direction (%s)", direction));
-        }
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -39,8 +31,6 @@ public abstract class Position {
      * Difficulty: *
      */
     public static Position of(final int x, final  int y) {
-        // IMPLEMENT FUNC {{{
-        return ImmutablePosition.of(x, y);
-        // }}}
+        return io.vavr.API.TODO();
     }
 }

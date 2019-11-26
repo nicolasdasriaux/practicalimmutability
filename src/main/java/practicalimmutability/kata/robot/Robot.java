@@ -45,9 +45,7 @@ public abstract class Robot {
      * Difficulty: *
      */
     public Robot changeDirection(final Direction direction) {
-        // IMPLEMENT FUNC {{{
-        return ImmutableRobot.copyOf(this).withDirection(direction);
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -56,9 +54,7 @@ public abstract class Robot {
      * Difficulty: *
      */
     public Robot toggleBreaker() {
-        // IMPLEMENT FUNC {{{
-        return ImmutableRobot.copyOf(this).withBreaker(!breaker());
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -67,9 +63,7 @@ public abstract class Robot {
      * Difficulty: *
      */
     public Robot invert() {
-        // IMPLEMENT FUNC {{{
-        return ImmutableRobot.copyOf(this).withInverted(!inverted());
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -78,9 +72,7 @@ public abstract class Robot {
      * Difficulty: *
      */
     public Robot die() {
-        // IMPLEMENT FUNC {{{
-        return ImmutableRobot.copyOf(this).withDead(true);
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -91,9 +83,7 @@ public abstract class Robot {
      * Use {@link List#of(Object[])}
      */
     public static final Seq<Direction> PRIORITIES =
-            // IMPLEMENT CONST {{{
-            List.of(South, East, North, West);
-            // }}}
+            io.vavr.API.TODO();
 
     /**
      * Inverted priorities
@@ -104,9 +94,7 @@ public abstract class Robot {
      * Use {@link Seq#reverse()}
      */
     public static final Seq<Direction> INVERTED_PRIORITIES =
-            // IMPLEMENT CONST {{{
-            PRIORITIES.reverse();
-            // }}}
+            io.vavr.API.TODO();
 
     /**
      * Get current robot priorities
@@ -117,9 +105,7 @@ public abstract class Robot {
      * Use {@link #INVERTED_PRIORITIES}
      */
     public Seq<Direction> priorities() {
-        // IMPLEMENT FUNC {{{
-        return inverted() ? INVERTED_PRIORITIES : PRIORITIES;
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -134,22 +120,7 @@ public abstract class Robot {
      * Use {@link Option#get()}
      */
     public Robot move(final CityMap cityMap) {
-        // IMPLEMENT FUNC {{{
-        final Direction currentDirection = direction();
-
-        final Direction updatedDirection;
-
-        if (obstacleInDirection(currentDirection, cityMap)) {
-            updatedDirection = priorities().find(direction -> !obstacleInDirection(direction, cityMap)).get();
-        } else {
-            updatedDirection = currentDirection;
-        }
-
-        return ImmutableRobot.builder().from(this)
-                .position(position().move(updatedDirection))
-                .direction(updatedDirection)
-                .build();
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -160,9 +131,7 @@ public abstract class Robot {
      * Use {@link #obstacle(Tile)}
      */
     private boolean obstacleInDirection(final Direction direction, final CityMap cityMap) {
-        // IMPLEMENT FUNC {{{
-        return obstacle(cityMap.tile(position().move(direction)));
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -174,25 +143,14 @@ public abstract class Robot {
      * Use {@link #breaker()}
      */
     private boolean obstacle(final Tile tile) {
-        // IMPLEMENT FUNC {{{
-        if (tile instanceof Obstacle) {
-            return true;
-        } else if (tile instanceof BreakableObstacle) {
-            return !breaker();
-        } else {
-            return false;
-        }
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
      * Trigger teleporter at current position and teleport robot to destination
      */
     public Robot triggerTeleporter(final CityMap cityMap) {
-        // IMPLEMENT FUNC {{{
-        final Position outPosition = cityMap.teleporterOutPosition(position());
-        return ImmutableRobot.copyOf(this).withPosition(outPosition);
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -201,14 +159,6 @@ public abstract class Robot {
      * Difficulty: *
      */
     public static Robot fromStart(final Position position) {
-        // IMPLEMENT FUNC {{{
-        return ImmutableRobot.builder()
-                .position(position)
-                .direction(South)
-                .breaker(false)
-                .inverted(false)
-                .dead(false)
-                .build();
-        // }}}
+        return io.vavr.API.TODO();
     }
 }

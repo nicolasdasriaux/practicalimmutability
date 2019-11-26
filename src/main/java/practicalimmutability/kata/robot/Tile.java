@@ -75,30 +75,7 @@ public interface Tile {
      * Difficulty: *
      */
     default char toCode() {
-        // IMPLEMENT FUNC {{{
-        if (this instanceof Empty) {
-            return ' ';
-        } else if (this instanceof Start) {
-            return '@';
-        } else if (this instanceof Booth) {
-            return '$';
-        } else if (this instanceof Obstacle) {
-            return '#';
-        } else if (this instanceof BreakableObstacle) {
-            return 'X';
-        } else if (this instanceof DirectionModifier) {
-            final DirectionModifier directionModifier = (DirectionModifier) this;
-            return directionModifier.direction().toCode();
-        } else if (this instanceof CircuitInverter) {
-            return 'I';
-        } else if (this instanceof Beer) {
-            return 'B';
-        } else if (this instanceof Teleporter) {
-            return 'T';
-        } else {
-            throw new IllegalArgumentException(String.format("Unknown tile (%s)", this));
-        }
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -107,19 +84,6 @@ public interface Tile {
      * Difficulty: *
      */
     static Tile fromCode(final char code) {
-        // IMPLEMENT FUNC {{{
-        switch (code) {
-            case ' ': return Empty.of();
-            case '@': return Start.of();
-            case '$': return Booth.of();
-            case '#': return Obstacle.of();
-            case 'X': return BreakableObstacle.of();
-            case 'N': case 'S': case 'E': case 'W': return DirectionModifier.of(Direction.fromCode(code));
-            case 'I': return CircuitInverter.of();
-            case 'B': return Beer.of();
-            case 'T': return Teleporter.of();
-            default: throw new IllegalArgumentException(String.format("Unknown tile code (%s)", code));
-        }
-        // }}}
+        return io.vavr.API.TODO();
     }
 }

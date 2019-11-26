@@ -27,9 +27,7 @@ public abstract class TrackedScene {
      * Difficulty: *
      */
     public boolean completed() {
-        // IMPLEMENT FUNC {{{
-        return scene().completed() || tracking().loop();
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -38,9 +36,7 @@ public abstract class TrackedScene {
      * Difficulty: *
      */
     public boolean loop() {
-        // IMPLEMENT FUNC {{{
-        return tracking().loop();
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -52,13 +48,7 @@ public abstract class TrackedScene {
      * Use {@link SceneTracking#track(Scene)}
      */
     public TrackedScene next() {
-        // IMPLEMENT FUNC {{{
-        final Scene currentScene = scene();
-        final SceneTracking currentTracking = tracking();
-        final Scene updatedScene = currentScene.next();
-        final SceneTracking updatedTracking = currentTracking.track(updatedScene);
-        return ImmutableTrackedScene.of(updatedScene, updatedTracking);
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -82,17 +72,7 @@ public abstract class TrackedScene {
      * Use {@link Option#of(Object)} and {@link Option#none()}
      */
     public Iterator<TrackedScene> run() {
-        // IMPLEMENT FUNC {{{
-        return Iterator.unfoldRight(Option.of(this), maybeCurrentScene -> {
-            return maybeCurrentScene.map(scene -> {
-                if (scene.completed()) {
-                    return Tuple.of(scene, Option.none());
-                } else {
-                    return Tuple.of(scene, Option.of(scene.next()));
-                }
-            });
-        });
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -103,8 +83,6 @@ public abstract class TrackedScene {
      * Be sure to initialize tracking
      */
     public static TrackedScene fromInitialScene(final Scene scene) {
-        // IMPLEMENT FUNC {{{
-        return ImmutableTrackedScene.of(scene, SceneTracking.fromInitialScene(scene));
-        // }}}
+        return io.vavr.API.TODO();
     }
 }

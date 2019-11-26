@@ -40,30 +40,7 @@ public abstract class SceneTracking {
      * @return new tracking state
      */
     public SceneTracking track(final Scene scene) {
-        // IMPLEMENT FUNC {{{
-        final CityMap previousCityMap = previousCityMap();
-        final CityMap cityMap = scene.cityMap();
-        final Robot robot = scene.robot();
-
-        if (loop()) {
-            return this;
-        } else {
-            if (previousCityMap.equals(cityMap)) {
-                if (previousRobots().contains(robot)) {
-                    return ImmutableSceneTracking.copyOf(this).withLoop(true);
-                } else {
-                    return ImmutableSceneTracking.builder().from(this)
-                            .addPreviousRobot(robot)
-                            .build();
-                }
-            } else {
-                return ImmutableSceneTracking.builder()
-                        .previousCityMap(cityMap)
-                        .addPreviousRobot(robot)
-                        .build();
-            }
-        }
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -74,11 +51,6 @@ public abstract class SceneTracking {
      * Be sure to look at unit tests
      */
     public static SceneTracking fromInitialScene(final Scene scene) {
-        // IMPLEMENT FUNC {{{
-        return ImmutableSceneTracking.builder()
-                .previousCityMap(scene.cityMap())
-                .addPreviousRobot(scene.robot())
-                .build();
-        // }}}
+        return io.vavr.API.TODO();
     }
 }

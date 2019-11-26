@@ -32,9 +32,7 @@ public abstract class Scene {
      * Use {@link Robot#dead()}
      */
     public boolean completed() {
-        // IMPLEMENT FUNC {{{
-        return robot().dead();
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -58,58 +56,7 @@ public abstract class Scene {
      * @see <a href="https://www.baeldung.com/vavr-pattern-matching">Guide to Pattern Matching in Vavr</a>
      */
     public Scene next() {
-        // IMPLEMENT FUNC {{{
-        final CityMap currentCityMap = cityMap();
-        final Robot currentRobot = robot();
-        final Position currentPosition = currentRobot.position();
-        final Tile currentTile = currentCityMap.tile(currentPosition);
-
-        if (currentTile instanceof Empty || currentTile instanceof Start) {
-            final Robot updatedRobot = currentRobot.move(currentCityMap);
-            return ImmutableScene.copyOf(this).withRobot(updatedRobot);
-        } else if (currentTile instanceof Booth) {
-            final Robot updatedRobot = currentRobot.die();
-            return ImmutableScene.copyOf(this).withRobot(updatedRobot);
-        } else if (currentTile instanceof Obstacle) {
-            throw new IllegalStateException("Position should never be on Obstacle tile");
-        } else if (currentTile instanceof BreakableObstacle) {
-            final CityMap updatedCityMap = currentCityMap.breakObstacle(currentPosition);
-            final Robot updatedRobot = currentRobot.move(updatedCityMap);
-
-            return ImmutableScene.builder().from(this)
-                    .cityMap(updatedCityMap)
-                    .robot(updatedRobot)
-                    .build();
-        } else if (currentTile instanceof DirectionModifier) {
-            final DirectionModifier directionModifier = (DirectionModifier) currentTile;
-
-            final Robot updatedRobot = currentRobot
-                    .changeDirection(directionModifier.direction())
-                    .move(currentCityMap);
-
-            return ImmutableScene.copyOf(this).withRobot(updatedRobot);
-        } else if (currentTile instanceof CircuitInverter) {
-            final Robot updatedRobot = currentRobot
-                    .invert()
-                    .move(currentCityMap);
-
-            return ImmutableScene.copyOf(this).withRobot(updatedRobot);
-        } else if (currentTile instanceof Beer) {
-            final Robot updatedRobot = currentRobot
-                    .toggleBreaker()
-                    .move(currentCityMap);
-
-            return ImmutableScene.copyOf(this).withRobot(updatedRobot);
-        } else if (currentTile instanceof Teleporter) {
-            final Robot updatedRobot = currentRobot
-                    .triggerTeleporter(currentCityMap)
-                    .move(currentCityMap);
-
-            return ImmutableScene.copyOf(this).withRobot(updatedRobot);
-        } else {
-            throw new IllegalStateException(String.format("Unexpected Tile (%s)", currentTile));
-        }
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -127,12 +74,7 @@ public abstract class Scene {
      * Use {@link Iterator#concat(Iterable[])} to concat both iterators (scenes before completion, scene at completion)
      */
     public Iterator<Scene> run() {
-        // IMPLEMENT FUNC {{{
-        final Tuple2<Iterator<Scene>, Iterator<Scene>> prefixAndReminder =
-                Iterator.iterate(this, Scene::next).span(scene -> !scene.completed());
-
-        return Iterator.concat(prefixAndReminder._1, prefixAndReminder._2.take(1));
-        // }}}
+        return io.vavr.API.TODO();
     }
 
     /**
@@ -141,13 +83,6 @@ public abstract class Scene {
      * Difficulty: *
      */
     public static Scene fromCityMap(final CityMap cityMap) {
-        // IMPLEMENT FUNC {{{
-        final Robot robot = Robot.fromStart(cityMap.start());
-
-        return ImmutableScene.builder()
-                .cityMap(cityMap)
-                .robot(robot)
-                .build();
-        // }}}
+        return io.vavr.API.TODO();
     }
 }
